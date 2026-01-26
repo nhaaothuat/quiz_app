@@ -8,7 +8,7 @@ function App() {
 
   const current = quizData[index];
 
-  function choose(i) {
+  function choose(i:number) {
     if (i === current.answer) {
       alert("Đúng rồi 😄");
       setScore(score + 1);
