@@ -7,11 +7,11 @@ const Header = () => {
   <h1 className="text-xl font-semibold">Quiz App</h1>
 
   <audio 
-    src="/src/assets/kkk.mp3"
+    src="/public/kkk.mp3"
     autoPlay
     loop
     hidden
-    muted
+  
   />
 
 </div>
