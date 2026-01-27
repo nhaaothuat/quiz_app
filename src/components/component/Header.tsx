@@ -11,6 +11,7 @@ const Header = () => {
     autoPlay
     loop
     hidden
+    muted
   />
 
 </div>
