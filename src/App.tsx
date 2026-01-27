@@ -1,31 +1,28 @@
 import { useEffect, useState } from "react";
 import quizData from "./data/quiz.json";
+import quizFullData from "./data/quizfull.json";
 import QuizCard from "./components/component/QuizCard";
 import Header from "./components/component/Header";
+import { Button } from "./components/ui/button";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { startQuizData } from "./utils/quizHelper";
 
-function shuffle(arr:any[]) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+
 
 function App() {
   const [quiz, setQuiz] = useState<any[] | null>(null);
   const [index, setIndex] = useState(0);
-  const [selected, setSelected] = useState<number | null>(null);
+  const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [timeLeft, setTimeLeft] = useState(0);
 
-  function startQuiz(num:number, minutes:number) {
-    const random = shuffle(quizData).slice(0, num);
+ function startQuiz(data:any[], num:number, minutes:number) {
+  const random = startQuizData(data, num);
 
-    setQuiz(random);
-    setIndex(0);
-    setSelected(null);
-    setTimeLeft(minutes * 60);
-  }
+  setQuiz(random);
+  setIndex(0);
+  setAnswers(Array(num).fill(null));
+  setTimeLeft(minutes * 60);
+}
 
   // ⏱ Timer
   useEffect(() => {
@@ -38,16 +35,23 @@ function App() {
     return () => clearInterval(timer);
   }, [quiz, timeLeft]);
 
-  // 👉 Chọn đáp án (không auto next)
+  // 👉 Chọn đáp án
   function choose(i:number) {
     if (!quiz) return;
-    setSelected(i);
+
+    setAnswers(prev => {
+      const copy = [...prev];
+      copy[index] = i;
+      return copy;
+    });
   }
 
-  // 👉 Nút Next
   function nextQuestion() {
-    setSelected(null);
     setIndex(i => i + 1);
+  }
+
+  function prevQuestion() {
+    setIndex(i => i - 1);
   }
 
   // ⌛ Hết giờ
@@ -57,48 +61,37 @@ function App() {
         <div className="bg-white p-6 rounded-xl shadow">
           <h2 className="text-xl mb-2">Hết giờ ⏰</h2>
 
-          <button
+          <Button
             onClick={() => setQuiz(null)}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+            className="mt-4"
           >
             Quay lại chọn đề
-          </button>
+          </Button>
         </div>
       </div>
     );
   }
 
-  // 📌 Chọn đề
+  // 🟡 Màn hình chọn đề
   if (!quiz) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
         <h2 className="text-2xl mb-4">Chọn đề thi</h2>
 
-        <button
-          onClick={() => startQuiz(20, 15)}
-          className="px-6 py-3 bg-blue-500 text-white rounded-xl"
-        >
+        <Button onClick={() => startQuiz(quizData,20,15)}>
           Đề 20 câu (15 phút)
-        </button>
+        </Button>
 
-        <button
-          onClick={() => startQuiz(35, 30)}
-          className="px-6 py-3 bg-green-500 text-white rounded-xl"
-        >
+        <Button onClick={() => startQuiz(quizFullData,35, 30)}>
           Đề 35 câu (30 phút)
-        </button>
+        </Button>
 
-        <button
-          onClick={() => startQuiz(50, 45)}
-          className="px-6 py-3 bg-purple-500 text-white rounded-xl"
-        >
+        <Button onClick={() => startQuiz(quizFullData,50, 45)}>
           Đề 50 câu (45 phút)
-        </button>
+        </Button>
       </div>
     );
   }
-
-  const current = quiz[index];
 
   // 🟢 Hết câu
   if (index >= quiz.length) {
@@ -107,16 +100,18 @@ function App() {
         <div className="bg-white p-6 rounded-xl shadow">
           <h2>Hoàn thành bài 🎉</h2>
 
-          <button
+          <Button
             onClick={() => setQuiz(null)}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+            className="mt-4"
           >
             Quay lại chọn đề
-          </button>
+          </Button>
         </div>
       </div>
     );
   }
+
+  const current = quiz[index];
 
   // ⏱ Format time
   const minutes = Math.floor(timeLeft / 60);
@@ -127,37 +122,47 @@ function App() {
 
       <Header />
 
-      {/* Timer */}
+      
       <div className="fixed top-16 left-0 right-0 bg-black text-white p-3 text-center z-10">
         Thời gian còn lại: {minutes}:{seconds.toString().padStart(2, "0")}
       </div>
 
       {/* Quiz */}
       <div className="pt-32">
+
         <QuizCard
           index={index}
           total={quiz.length}
           question={current.question}
           options={current.options}
           answer={current.answer}
-          selected={selected}
+          selected={answers[index]}
           onChoose={choose}
         />
 
-        {/* 👉 NEXT button */}
-        <div className="flex justify-center mt-6">
-          <button
-            disabled={selected === null}
-            onClick={nextQuestion}
-            className={`
-              px-6 py-3 rounded-xl text-white transition
-              ${selected === null 
-                ? "bg-gray-400 cursor-not-allowed" 
-                : "bg-blue-500 hover:bg-blue-600"}
-            `}
+        {/* Buttons */}
+        <div className="flex justify-center gap-4 mt-6">
+
+          <Button
+            disabled={index === 0}
+            onClick={prevQuestion}
+            className={index === 0 ? "bg-gray-400" : "bg-slate-500 hover:bg-slate-600"}
           >
-            Next →
-          </button>
+            <GrFormPrevious />
+          </Button>
+
+          <Button
+            disabled={answers[index] === null}
+            onClick={nextQuestion}
+            className={
+              answers[index] === null
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-500 hover:bg-blue-600"
+            }
+          >
+            <GrFormNext />
+          </Button>
+
         </div>
       </div>
 
