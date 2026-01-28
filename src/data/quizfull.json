@@ -219,17 +219,7 @@
     ],
     "answer": 0
   },
-  {
-    "id": 21,
-    "question": "Nhận định nào sau đây về việc sử dụng hợp đồng điện tử đối với gói thầu sử dụng vốn ngân sách nhà nước là đúng?",
-    "options": [
-      "Bắt buộc sử dụng hợp đồng điện tử đối với tất cả gói thầu tổ chức lựa chọn nhà thầu qua mạng và không qua mạng theo hình thức đấu thầu rộng rãi, đấu thầu hạn chế, chào hàng cạnh tranh, chào giá trực tuyến, mua sắm trực tuyến mà việc thanh toán hợp đồng được thực hiện qua Kho bạc nhà nước",
-      "Bắt buộc sử dụng hợp đồng điện tử đối với gói thầu áp dụng hình thức đặt hàng, chỉ định thầu, mua sắm trực tiếp, đàm phán giá, lựa chọn nhà thầu trong trường hợp đặc biệt, gói thầu có sự tham gia của cộng đồng, lựa chọn tư vấn cá nhân theo quy trình rút gọn",
-      "Bắt buộc sử dụng hợp đồng điện tử đối với các gói thầu mà việc thanh toán hợp đồng không được thực hiện qua Kho bạc nhà nước",
-      "Bắt buộc sử dụng hợp đồng điện tử đối với tất cả gói thầu lựa chọn nhà thầu trên Hệ thống mạng đấu thầu Quốc gia theo hình thức đấu thầu rộng rãi, đấu thầu hạn chế, chào hàng cạnh tranh, chào giá trực tuyến, mua sắm trực tuyến mà việc thanh toán hợp đồng được thực hiện qua Kho bạc nhà nước"
-    ],
-    "answer": 3
-  },
+  
   {
     "id": 21,
     "question": "Đối với gói thầu sử dụng vốn ngân sách nhà nước, tiền bán bản điện tử hồ sơ mời thầu, hồ sơ yêu cầu sẽ được xử lý như thế nào?",
@@ -239,7 +229,7 @@
       "Sử dụng theo cơ chế khoán chi",
       "Tất cả các đáp án trên đều sai"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "id": 22,
@@ -289,7 +279,7 @@
     "id": 26,
     "question": "Nhận định nào sau đây không phù hợp với quy định về bảo đảm cạnh tranh trong đấu thầu?",
     "options": [
-      "Nhà thầu tham dự thầu phải độc lập với chủ đầu tư, trừ trường hợp đặc thù theo quy định",
+      "Nhà thầu tham dự thầu phải độc lập với chủ đầu tư, trừ trường hợp: nhà thầu là đơn vị sự nghiệp công lập thuộc cơ quan quản lý nhà nước có chức năng, nhiệm vụ được giao phù hợp với tính chất gói thầu của cơ quan quản lý nhà nước đó; đơn vị sự nghiệp công lập và doanh nghiệp có cùng một cơ quan trực tiếp quản lý, góp vốn; các đơn vị sự nghiệp công lập có cùng một cơ quan trực tiếp quản lý",
       "Nhà thầu tham dự thầu phải độc lập với nhà thầu tư vấn quản lý dự án, tư vấn giám sát",
       "Nhà thầu tham dự thầu phải độc lập với nhà thầu tư vấn lập, thẩm tra, thẩm định hồ sơ thiết kế, dự toán",
       "Nhà thầu thực hiện hợp đồng phải độc lập với nhà thầu tư vấn lập kế hoạch lựa chọn nhà thầu."
@@ -302,7 +292,7 @@
     "options": [
       "Nhà thầu tham dự thầu phải độc lập với nhà thầu lập, thẩm tra thiết kế FEED",
       "Nhà thầu tham dự thầu phải độc lập với nhà thầu lập, thẩm tra báo cáo nghiên cứu khả thi trong trường hợp không lập thiết kế FEED",
-      "Nhà thầu tham dự thầu phải độc lập với nhà thầu lập, thẩm tra báo cáo kinh tế kỹ thuật trong trường hợp không lập báo cáo nghiên cứu khả thi, không lập thiết kế FEED",
+      "Nhà thầu tham dự thầu phải độc lập với nhà thầu lập, thẩm tra báo cáo kinh tế kỹ thuật trong trường hợp không lập báo cáo nghiên cứu khả thi, không lập thiết kế FEED theo quy định của pháp luật về xây dựng",
       "Nhà thầu tham dự thầu phải độc lập với nhà thầu khác cùng tham dự đấu thầu rộng rãi"
     ],
     "answer": 3
@@ -360,7 +350,7 @@
       "Doanh thu của nhà thầu",
       "Việc thực hiện nghĩa vụ kê khai thuế, nộp thuế"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "id": 33,
@@ -415,7 +405,7 @@
       "Kết hợp giữa kỹ thuật và giá",
       "Giá cố định"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "id": 38,
@@ -723,7 +713,7 @@
       "Chủ đầu tư đăng tải trong thời hạn 07 ngày làm việc kể từ ngày nhà thầu có hành vi vi phạm",
       "Người có thẩm quyền đăng tải trong thời hạn 05 ngày làm việc kể từ ngày nhà thầu có hành vi vi phạm"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
     "id": 66,
@@ -734,7 +724,7 @@
       "E-HSMT yêu cầu giá trị bảo đảm dự thầu là 60 triệu đồng",
       "E-HSMT yêu cầu giá trị bảo đảm dự thầu là 100 triệu đồng"
     ],
-    "answer": 1
+    "answer": 0 
   },
   {
     "id": 67,
@@ -767,7 +757,7 @@
       "Tổ chuyên gia phải mở thầu và công khai biên bản mở thầu trên Hệ thống trong thời hạn không quá 02 giờ kể từ thời điểm đóng thầu.",
       "Chủ đầu tư phải mở thầu và công khai biên bản mở thầu trên Hệ thống trong thời hạn không quá 02 giờ kể từ thời điểm đóng thầu."
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "id": 70,
@@ -797,7 +787,7 @@
     "options": [
       "Các file mở, đọc được bằng các phần mềm thông dụng như: các phần mềm đọc, soạn thảo văn bản MS Office hoặc Open Office; các phần mềm đọc file PDF; các phần mềm thiết kế thông dụng như AutoCad, Photoshop; phần mềm đọc file ảnh tích hợp sẵn trên Hệ điều hành Windows",
       "Các file sử dụng phông chữ thuộc bảng mã Unicode",
-      "Các file nén mở được bằng phần mềm giải nén ZIP/Rar/7Zip",
+      "Các file nén mở được bằng các phần mềm giải nén thông dụng như phần mềm giải nén ZIP tích hợp sẵn trên hệ điều hành Windows hoặc phần mềm giải nén Rar hoặc 7Zip",
       "Các file bị nhiễm virus, bị lỗi, hỏng"
     ],
     "answer": 3
@@ -811,7 +801,7 @@
       "Doanh thu bình quân 3 năm gần nhất của nhà thầu",
       "Các đáp án trên đều đúng"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
     "id": 74,
@@ -828,20 +818,20 @@
     "id": 75,
     "question": "Đối với đấu thầu rộng rãi qua mạng, một số nội dung do Hệ thống mạng đấu thầu quốc gia đánh giá \"không đạt\" thì Tổ chuyên gia không thể sửa đổi kết quả đánh giá từ \"không đạt\" thành \"đạt\". Phương án nào sau đây là đúng?",
     "options": [
-      "Tư cách hợp lệ, nhân sự, trạng thái tham gia Hệ thống, doanh thu bình quân.",
-      "Tư cách hợp lệ, bảo đảm dự thầu, thực hiện nghĩa vụ thuế, kết quả tài chính, doanh thu bình quân",
-      "Tư cách hợp lệ, không có nhân sự bị kết án, trạng thái tham gia Hệ thống, thực hiện nghĩa vụ thuế, kết quả tài chính, doanh thu bình quân",
-      "Tư cách hợp lệ, không có nhân sự bị kết án, lịch sử không hoàn thành hợp đồng, thực hiện nghĩa vụ thuế, kết quả tài chính, doanh thu bình quân"
+      "Tư cách hợp lệ, nhà thầu không có nhân sự bị tòa án kết án có hành vi vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng, trạng thái bị tạm ngừng, chấm dứt tham gia Hệ thống mạng đấu thầu quốc gia, doanh thu bình quân hằng năm",
+      "Tư cách hợp lệ, bảo đảm dự thầu, thực hiện nghĩa vụ kê khai thuế và nộp thuế, kết quả hoạt động tài chính, doanh thu bình quân hằng năm",
+      "Tư cách hợp lệ, nhà thầu không có nhân sự bị tòa án kết án có hành vi vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng, trạng thái bị tạm ngừng, chấm dứt tham gia Hệ thống mạng đấu thầu quốc gia, thực hiện nghĩa vụ kê khai thuế và nộp thuế, kết quả hoạt động tài chính, doanh thu bình quân hằng năm",
+      "Tư cách hợp lệ, nhà thầu không có nhân sự bị tòa án kết án có hành vi vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng, lịch sử không hoàn thành hợp đồng do lỗi của nhà thầu, thực hiện nghĩa vụ kê khai thuế và nộp thuế, kết quả hoạt động tài chính, doanh thu bình quân hằng năm"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "id": 76,
     "question": "Đối với đấu thầu qua mạng, trường hợp Hệ thống gặp sự cố thì trường hợp nào được Hệ thống tự động gia hạn thời điểm đóng thầu?",
     "options": [
-      "Các gói thầu có thời điểm đóng thầu trong thời gian từ khi Hệ thống gặp sự cố cho đến sau khi khắc phục xong 02 giờ",
-      "Các gói thầu có thời điểm đóng thầu, kết thúc chào giá, đăng tải kết quả trong thời gian sự cố đến sau khi khắc phục 02 giờ",
-      "Các gói thầu có thời điểm đóng thầu trong thời gian sự cố đến sau khi khắc phục xong 04 giờ",
+      "Các gói thầu có thời điểm đóng thầu, thời điểm kết thúc chào giá trực tuyến trong thời gian từ khi Hệ thống gặp sự cố cho đến thời điểm sau hoàn thành khắc phục sự cố 02 giờ",
+      "Các gói thầu có thời điểm đóng thầu, thời điểm kết thúc chào giá trực tuyến, thời điểm đăng tải kết quả lựa chọn nhà thầu trong thời gian từ khi Hệ thống gặp sự cố cho đến thời điểm sau hoàn thành khắc phục sự cố 02 giờ",
+      "Các gói thầu có thời điểm đóng thầu trong thời gian từ khi Hệ thống gặp sự cố cho đến thời điểm sau hoàn thành khắc phục sự cố 04 giờ",
       "Các đáp án trên đều sai"
     ],
     "answer": 0
@@ -872,12 +862,12 @@
     "id": 79,
     "question": "Quy trình 02 trong đánh giá E-HSDT được áp dụng đối với gói thầu nào sau đây?",
     "options": [
-      "Gói thầu mua sắm hàng hóa áp dụng 1 giai đoạn 1 túi hồ sơ, phương pháp giá thấp nhất và không có ưu đãi",
-      "Gói thầu dịch vụ phi tư vấn áp dụng 1 giai đoạn 1 túi hồ sơ, phương pháp giá đánh giá và ưu đãi như nhau",
-      "Gói thầu xây lắp áp dụng 1 giai đoạn 1 túi hồ sơ, phương pháp giá thấp nhất và không có ưu đãi",
-      "Gói thầu máy đặt, máy mượn áp dụng 1 giai đoạn 1 túi hồ sơ, phương pháp giá thấp nhất và ưu đãi như nhau"
+      "Gói thầu mua sắm hàng hóa áp dụng phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá thấp nhất” và các nhà thầu, E-HSDT đều không có bất kỳ ưu đãi nào",
+      "Gói thầu dịch vụ phi tư vấn áp dụng phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá đánh giá” và các nhà thầu, E-HSDT chào ưu đãi như nhau",
+      "Gói thầu xây lắp áp dụng phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá thấp nhất” và các nhà thầu, E-HSDT đều không có bất kỳ ưu đãi nào",
+      "Gói thầu máy đặt, máy mượn áp dụng phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá thấp nhất” và các nhà thầu, E-HSDT chào ưu đãi như nhau"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "id": 80,
@@ -885,7 +875,7 @@
     "options": [
       "Huỷ E-TBMT để mời thầu lại. (A)",
       "Chuyển sang hình thức đấu thầu rộng rãi không qua mạng (B)",
-      "Cho phép gia hạn thời điểm đóng thầu tối thiểu 05 ngày làm việc đối với một số hạn mức gói thầu (C)",
+      "Cho phép gia hạn thời điểm đóng thầu tối thiểu 05 ngày làm việc đối với gói thầu xây lắp, hỗn hợp có giá gói thầu không quá 20 tỷ đồng, gói thầu mua sắm hàng hoá, dịch vụ phi tư vấn có giá không quá 10 tỷ đồng (C)",
       "Phương án A và C đều đúng (D)"
     ],
     "answer": 3
@@ -954,7 +944,7 @@
       "500 triệu đồng",
       "01 tỷ đồng"
     ],
-    "answer": 0
+    "answer": 2
   },
   {
     "id": 87,

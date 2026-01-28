@@ -1,17 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import quizData from "./data/quiz.json";
 import quizFullData from "./data/quizfull.json";
 import QuizCard from "./components/component/QuizCard";
-import Header from "./components/component/Header";
+
 import { Button } from "./components/ui/button";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { startQuizData } from "./utils/quizHelper";
+import { useTimer } from "./hook/useTimer"; // 👈 import hook
 
 function App() {
   const [quiz, setQuiz] = useState<any[] | null>(null);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
-  const [timeLeft, setTimeLeft] = useState<number | null>(null); // 👉 để null mặc định
+
+  // 👉 dùng hook timer
+  const {
+    timeLeft,
+    start,
+    reset
+  } = useTimer(null);
 
   function startQuiz(data: any[], num: number, minutes?: number) {
     const random = startQuizData(data, num);
@@ -21,22 +28,11 @@ function App() {
     setAnswers(Array(num).fill(null));
 
     if (minutes !== undefined) {
-      setTimeLeft(minutes * 60);
+      start(minutes * 60);   // ⏱ có giới hạn
     } else {
-      setTimeLeft(null); // không giới hạn thời gian
+      reset(null);           // 🚫 không giới hạn (luyện tập)
     }
   }
-
-  // ⏱ Timer chỉ chạy khi có timeLeft
-  useEffect(() => {
-    if (!quiz || timeLeft === null || timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-      setTimeLeft(t => (t !== null ? t - 1 : null));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [quiz, timeLeft]);
 
   // 👉 Chọn đáp án
   function choose(i: number) {
@@ -78,21 +74,23 @@ function App() {
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
         <h2 className="text-2xl mb-4">Chọn đề thi</h2>
 
-        <Button onClick={() => startQuiz(quizData, 20, 15)}>
-          Đề 20 câu (15 phút)
+        {/* Có timer */}
+        <Button onClick={() => startQuiz(quizData, 70, 60)}>
+          Đề 1 - 70 câu mới (60 phút)
         </Button>
 
-        <Button onClick={() => startQuiz(quizFullData, 35, 30)}>
-          Đề 35 câu (30 phút)
+        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
+          Đề 2 (60 phút)
         </Button>
-
-        <Button onClick={() => startQuiz(quizFullData, 50, 45)}>
-          Đề 50 câu (45 phút)
+        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
+          Đề 3 (60 phút)
         </Button>
-
-        {/* 👉 Chế độ không timer */}
+        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
+          Đề 4 (60 phút)
+        </Button>
+        {/* Không timer */}
         <Button onClick={() => startQuiz(quizFullData, 340)}>
-          Luyện tập (không giới hạn thời gian)
+          Luyện tập 340 câu
         </Button>
       </div>
     );
@@ -115,15 +113,15 @@ function App() {
 
   const current = quiz[index];
 
-  // ⏱ Format time (chỉ khi có timer)
+  // ⏱ Format time (nếu có)
   const minutes = timeLeft !== null ? Math.floor(timeLeft / 60) : 0;
   const seconds = timeLeft !== null ? timeLeft % 60 : 0;
 
   return (
     <div>
-      <Header />
+      
 
-      {/* 👉 Chỉ hiện timer khi có setup */}
+      {/* Timer chỉ hiện khi có */}
       {timeLeft !== null && (
         <div className="fixed top-16 left-0 right-0 bg-black text-white p-3 text-center z-10">
           Thời gian còn lại: {minutes}:{seconds.toString().padStart(2, "0")}
