@@ -247,6 +247,7 @@
     "options": [
       "Quy trình 02 áp dụng đối với gói thầu mua sắm hàng hóa, dịch vụ phi tư vấn, máy đặt, máy mượn theo phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá thấp nhất” và các nhà thầu, E-HSDT đều không có bất kỳ ưu đãi nào",
       "Hệ thống tự động xếp hạng nhà thầu theo giá dự thầu sau khi trừ đi giá trị giảm giá (nếu có) thấp nhất (không phải phê duyệt danh sách xếp hạng nhà thầu) đối với gói thầu áp dụng quy trình 02",
+      "Trường hợp có từ 02 nhà thầu trở lên cùng xếp thứ nhất thì không đánh giá theo quy trình 02 mà phải đánh giá theo quy trình 01",
       "Cả 3 đáp án đều đúng"
     ],
     "answer": 3
@@ -282,7 +283,7 @@
       "Chủ đầu tư có trách nhiệm trả lời yêu cầu giải thích lý do cụ thể nhà thầu không trúng thầu của nhà thầu trong thời hạn 02 ngày làm việc kể từ ngày nhận được yêu cầu của nhà thầu",
       "Chủ đầu tư gửi văn bản thông báo kết quả lựa chọn nhà thầu cho các nhà thầu tham dự thầu trong thời hạn 03 ngày làm việc kể từ ngày phê duyệt kết quả lựa chọn nhà thầu"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "id": 27,
@@ -315,7 +316,7 @@
       "Giá trị trong khoảng từ 01% đến 02% giá trần",
       "Giá trị trong khoảng từ 01% đến 03% giá trần"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "id": 30,
@@ -337,7 +338,7 @@
       "Hệ thống mạng đấu thầu quốc gia",
       "Tất cả phương án trên đều đúng"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
     "id": 32,
@@ -359,7 +360,7 @@
       "Ký hợp đồng điện tử trên Hệ thống khi việc thanh toán hợp đồng được thực hiện qua Kho bạc nhà nước",
       "Không ký hợp đồng điện tử đối với gói thầu có giá trị nhỏ hơn 500 triệu đồng"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "id": 34,
@@ -381,7 +382,7 @@
       "Gói thầu xây lắp theo phương thức một giai đoạn một túi hồ sơ, sử dụng phương pháp “giá thấp nhất”",
       "Cả 3 phương án"
     ],
-    "answer": 3
+    "answer": 0
   },
   {
     "id": 36,
@@ -403,7 +404,7 @@
       "Nhà thầu cần nghiên cứu công thức tính thành tiền và đơn giá dự thầu từ các trọng số để đề xuất các trọng số cho phù hợp",
       "Nhà thầu phải điền các trọng số về đơn giá (N1, N2....) của từng hạng mục"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "id": 38,
@@ -425,7 +426,7 @@
       "Loại E-HSDT của nhà thầu do có sự sai khác giữa thông tin kê khai và tài liệu đính kèm.",
       "Phương án A và B đều đúng"
     ],
-    "answer": 3
+    "answer": 1
   },
   {
     "id": 40,
@@ -436,7 +437,7 @@
       "E-HSDT của nhà thầu A không được xem xét, đánh giá",
       "Phương án B"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
     "id": 41,
@@ -447,7 +448,7 @@
       "Tiếp tục xem xét, đánh giá nếu tài liệu đính kèm của nhà thầu đầy đủ thông tin",
       "Cả 3 phương án đều sai"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
     "id": 42,
@@ -469,7 +470,7 @@
       "Giá gói thầu",
       "Giá dự thầu của nhà thầu chưa trừ đi giá trị giảm giá"
     ],
-    "answer": 0
+    "answer": 3
   },
   {
     "id": 44,
@@ -491,7 +492,7 @@
       "Được yêu cầu về huy động nhân sự chủ chốt đối với phần công việc cung cấp hàng hóa mà hàng hóa đó có tính đặc thù cần sự khẳng định của nhà sản xuất, nhà cung cấp để đảm bảo tính khả thi trong việc cung cấp hàng hóa",
       "Chủ đầu tư không được nêu yêu cầu huy động về nhân sự chủ chốt đối với hàng hóa thông dụng, sẵn có trên thị trường, không đòi hỏi nhân sự thực hiện dịch vụ liên quan phải có trình độ cao"
     ],
-    "answer": 3
+    "answer": 2
   },
   {
     "id": 46,
@@ -502,7 +503,7 @@
       "Trường hợp gói thầu có thời gian thực hiện dài hơn 01 năm, giá gói thầu trong kế hoạch lựa chọn nhà thầu được ghi rõ theo chu kỳ 01 năm hoặc trên cơ sở toàn bộ thời gian thực hiện gói thầu",
       "Kế hoạch lựa chọn nhà thầu phải ghi rõ số lượng gói thầu và nội dung của từng gói thầu"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
     "id": 47,
@@ -546,7 +547,7 @@
       "Nhà thầu đã hoàn thành toàn bộ 01 công trình cấp II có giá trị là 10 tỷ đồng, hợp đồng được ký kết năm 2022, hoàn thành năm 2025 (trước thời điểm đóng thầu)",
       "Tất cả phương án trên đều đáp ứng yêu cầu về kinh nghiệm thực hiện hợp đồng tương tự"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "id": 51,
@@ -557,7 +558,7 @@
       "Cung cấp dịch vụ tư vấn giám sát thi công công trình của dự án",
       "Tất cả các phương án trên đều đúng"
     ],
-    "answer": 1
+    "answer": 3
   },
   {
     "id": 52,
@@ -568,7 +569,7 @@
       "Phê duyệt hồ sơ mời thầu",
       "Yêu cầu nhà thầu làm rõ hồ sơ dự thầu"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "id": 53,
@@ -590,7 +591,7 @@
       "Tiến hành hiệu chỉnh sai lệch về thuế, phí, lệ phí của nhà thầu theo quy định",
       "Hồ sơ dự thầu của nhà thầu không được tiếp tục xem xét, đánh giá và giá dự thầu của nhà thầu được hiểu là không bao gồm thuế, phí, lệ phí"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "id": 55,
@@ -601,7 +602,7 @@
       "Chỉ áp dụng đối với gói thầu phi tư vấn, mua sắm hàng hóa, xây lắp",
       "Tất cả các phương án trên đều sai"
     ],
-    "answer": 2
+    "answer": 3
   },
   {
     "id": 56,
@@ -667,7 +668,7 @@
       "7 ngày",
       "7 ngày làm việc"
     ],
-    "answer": 2
+    "answer": 0
   },
   {
     "id": 62,
@@ -700,7 +701,7 @@
       "Nhà thầu liên danh trong đó có thành viên liên danh là nhà thầu Hoa Kỳ và thành viên này đảm nhận từ 50% trở lên giá trị công việc của gói thầu",
       "Nhà thầu liên danh trong đó có thành viên liên danh là nhà thầu nội khối và thành viên này đảm nhận từ 40% trở lên giá trị công việc của gói thầu"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
     "id": 65,
@@ -733,7 +734,7 @@
       "50% tổng giá hợp đồng các gói thầu thuộc phạm vi điều chỉnh của Nghị định số 95/2020/NĐ-CP",
       "60% tổng giá hợp đồng các gói thầu thuộc phạm vi điều chỉnh của Nghị định số 95/2020/NĐ-CP"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
     "id": 68,
