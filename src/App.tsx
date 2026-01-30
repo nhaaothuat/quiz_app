@@ -19,13 +19,16 @@ import {
 } from "@/components/ui/dialog"
 import Header from "./components/component/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+import SpecialDialog from "./components/component/Special";
 
 
 function App() {
   const [quiz, setQuiz] = useState<any[] | null>(null);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
-  const [submitted, setSubmitted] = useState(false); // 👈 thêm
+  const [submitted, setSubmitted] = useState(false); 
+  const mergedData = [...quizData, ...quizFullData];
+
 
   const { timeLeft, start, reset } = useTimer(null);
 
@@ -177,7 +180,7 @@ function App() {
       </CardContent>
     </Card>
 
-    {/* Đề 3 */}
+   
     <Card className="hover:shadow-xl transition-all">
       <CardHeader>
         <CardTitle>Đề 3</CardTitle>
@@ -210,6 +213,50 @@ function App() {
         >
           Bắt đầu
         </Button>
+      </CardContent>
+    </Card>
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 5</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+        <Button
+          className="w-full"
+          onClick={() => startQuiz(mergedData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 6</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+        <Button
+          className="w-full"
+          onClick={() => startQuiz(mergedData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+     <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 7</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+       <SpecialDialog />
+         
       </CardContent>
     </Card>
 
