@@ -6,19 +6,28 @@ import QuizCard from "./components/component/QuizCard";
 import { Button } from "./components/ui/button";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { startQuizData } from "./utils/quizHelper";
-import { useTimer } from "./hook/useTimer"; // 👈 import hook
+import { useTimer } from "./hook/useTimer";
+
+import {
+  Dialog,
+  DialogContent,
+  
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import Header from "./components/component/Header";
+import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+
 
 function App() {
   const [quiz, setQuiz] = useState<any[] | null>(null);
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
+  const [submitted, setSubmitted] = useState(false); // 👈 thêm
 
-  // 👉 dùng hook timer
-  const {
-    timeLeft,
-    start,
-    reset
-  } = useTimer(null);
+  const { timeLeft, start, reset } = useTimer(null);
 
   function startQuiz(data: any[], num: number, minutes?: number) {
     const random = startQuizData(data, num);
@@ -26,15 +35,15 @@ function App() {
     setQuiz(random);
     setIndex(0);
     setAnswers(Array(num).fill(null));
+    setSubmitted(false);
 
     if (minutes !== undefined) {
-      start(minutes * 60);   // ⏱ có giới hạn
+      start(minutes * 60);
     } else {
-      reset(null);           // 🚫 không giới hạn (luyện tập)
+      reset(null);
     }
   }
 
-  // 👉 Chọn đáp án
   function choose(i: number) {
     if (!quiz) return;
 
@@ -53,14 +62,67 @@ function App() {
     setIndex(i => i - 1);
   }
 
-  // ⌛ Hết giờ (chỉ khi có timer)
+  // ⌛ Hết giờ → tự nộp
   if (quiz && timeLeft !== null && timeLeft <= 0) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h2 className="text-xl mb-2">Hết giờ ⏰</h2>
+    setSubmitted(true);
+  }
 
-          <Button onClick={() => setQuiz(null)} className="mt-4">
+  // 📊 Màn hình kết quả
+  if (quiz && (index >= quiz.length || submitted)) {
+
+    const results = quiz.map((q, i) => ({
+      question: q.question,
+      options: q.options,
+      correct: q.answer,
+      selected: answers[i],
+      isCorrect: answers[i] === q.answer
+    }));
+
+    const score = results.filter(r => r.isCorrect).length;
+
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-white p-6 rounded-xl shadow max-w-2xl w-full">
+
+          <h2 className="text-xl mb-2">Hoàn thành bài 🎉</h2>
+          <p className="mb-4 font-semibold">
+            Điểm: {score} / {quiz.length}
+          </p>
+
+          <div className="space-y-4 max-h-96 overflow-y-auto">
+
+            {results.map((r, i) => (
+              <div
+                key={i}
+                className={`p-3 rounded-lg border ${r.isCorrect
+                    ? "border-green-400 bg-green-50"
+                    : "border-red-400 bg-red-50"
+                  }`}
+              >
+                <p className="font-semibold">
+                  Câu {i + 1}: {r.question}
+                </p>
+
+                <p>✅: {r.options[r.correct]}</p>
+
+                <p>
+                  ❌:{" "}
+                  {r.selected !== null
+                    ? r.options[r.selected]
+                    : "Chưa chọn"}
+                </p>
+              </div>
+            ))}
+
+          </div>
+
+          <Button
+            onClick={() => {
+              setQuiz(null);
+              setSubmitted(false);
+            }}
+            className="mt-6"
+          >
             Quay lại chọn đề
           </Button>
         </div>
@@ -71,64 +133,138 @@ function App() {
   // 🟡 Màn hình chọn đề
   if (!quiz) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-100">
-        <h2 className="text-2xl mb-4">Chọn đề thi</h2>
+      <div className="min-h-screen bg-muted flex flex-col items-center justify-center px-4">
 
-        {/* Có timer */}
-        <Button onClick={() => startQuiz(quizData, 70, 60)}>
-          Đề 1 - 70 câu mới (60 phút)
-        </Button>
+  <h2 className="text-3xl font-bold mb-10">
+    Chọn đề thi
+  </h2>
 
-        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
-          Đề 2 (60 phút)
-        </Button>
-        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
-          Đề 3 (60 phút)
-        </Button>
-        <Button onClick={() => startQuiz(quizFullData, 70, 60)}>
-          Đề 4 (60 phút)
-        </Button>
-        {/* Không timer */}
-        <Button onClick={() => startQuiz(quizFullData, 340)}>
-          Luyện tập 340 câu
-        </Button>
-      </div>
-    );
-  }
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
 
-  // 🟢 Hết câu
-  if (index >= quiz.length) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white p-6 rounded-xl shadow">
-          <h2>Hoàn thành bài 🎉</h2>
+    {/* Đề 1 */}
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 1</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu mới</p>
+        <p className="font-medium">⏱ 60 phút</p>
 
-          <Button onClick={() => setQuiz(null)} className="mt-4">
-            Quay lại chọn đề
-          </Button>
-        </div>
-      </div>
+        <Button
+          className="w-full mt-2"
+          onClick={() => startQuiz(quizData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Đề 2 */}
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 2</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+        <Button
+          className="w-full"
+          onClick={() => startQuiz(quizFullData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Đề 3 */}
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 3</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+        <Button
+          className="w-full"
+          onClick={() => startQuiz(quizFullData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Đề 4 */}
+    <Card className="hover:shadow-xl transition-all">
+      <CardHeader>
+        <CardTitle>Đề 4</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-muted-foreground">70 câu</p>
+        <p className="font-medium">⏱ 60 phút</p>
+
+        <Button
+          className="w-full"
+          onClick={() => startQuiz(quizFullData, 70, 60)}
+        >
+          Bắt đầu
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Luyện tập */}
+    <Card className="sm:col-span-2 lg:col-span-3 bg-primary text-primary-foreground">
+      <CardHeader>
+        <CardTitle>Luyện tập tổng hợp</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p>340 câu – Không giới hạn thời gian</p>
+
+        <Button
+          variant="secondary"
+          className="w-full"
+          onClick={() => startQuiz(quizFullData, 340)}
+        >
+          Bắt đầu luyện tập
+        </Button>
+      </CardContent>
+    </Card>
+
+    <Card className="sm:col-span-2 lg:col-span-3 bg-primary text-primary-foreground">
+      <CardHeader>
+        <CardTitle>Luyện tập tổng hợp</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <p>70 câu – Không giới hạn thời gian</p>
+
+        <Button
+          variant="secondary"
+          className="w-full"
+          onClick={() => startQuiz(quizData, 70)}
+        >
+          Bắt đầu luyện tập
+        </Button>
+      </CardContent>
+    </Card>
+
+  </div>
+</div>
     );
   }
 
   const current = quiz[index];
 
-  // ⏱ Format time (nếu có)
-  const minutes = timeLeft !== null ? Math.floor(timeLeft / 60) : 0;
-  const seconds = timeLeft !== null ? timeLeft % 60 : 0;
+ 
 
   return (
-    <div>
-      
+    <>
 
-      {/* Timer chỉ hiện khi có */}
-      {timeLeft !== null && (
-        <div className="fixed top-16 left-0 right-0 bg-black text-white p-3 text-center z-10">
-          Thời gian còn lại: {minutes}:{seconds.toString().padStart(2, "0")}
-        </div>
-      )}
 
-      <div className="pt-32">
+      <Header timeLeft={timeLeft} />
+
+      <div className="pt-15">
+
         <QuizCard
           index={index}
           total={quiz.length}
@@ -140,6 +276,7 @@ function App() {
         />
 
         <div className="flex justify-center gap-4 mt-6">
+
           <Button
             disabled={index === 0}
             onClick={prevQuestion}
@@ -147,6 +284,35 @@ function App() {
           >
             <GrFormPrevious />
           </Button>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="bg-red-500 hover:bg-red-600">
+                Nộp bài
+              </Button>
+            </DialogTrigger>
+
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Bạn chắc chắn muốn nộp bài?</DialogTitle>
+              </DialogHeader>
+
+              <p className="text-gray-600">
+                Bạn vẫn có thể còn câu chưa làm. Sau khi nộp sẽ không chỉnh sửa được.
+              </p>
+
+              <DialogFooter className="flex gap-2 mt-4">
+
+                <Button
+                  className="bg-red-500 hover:bg-red-600"
+                  onClick={() => setSubmitted(true)}
+                >
+                  Nộp bài
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+
 
           <Button
             disabled={answers[index] === null}
@@ -159,9 +325,13 @@ function App() {
           >
             <GrFormNext />
           </Button>
+
+
+
+
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
